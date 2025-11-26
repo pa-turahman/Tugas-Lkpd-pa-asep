@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Contoh Sederhana</h2>
+
+<p>Jumlah klik: <span id="count">0</span></p>
+
+<button onclick="tambah()">Tambah</button>
+<button onclick="resetCount()">Reset</button>
+
+<script>
+  let jumlah = 0;
+
+  function tambah() {
+    jumlah++;
+    document.getElementById("count").textContent = jumlah;
+  }
+
+  function resetCount() {
+    jumlah = 0;
+    document.getElementById("count").textContent = jumlah;
+  }
+</script>
+
+</body>
+</html>
+
