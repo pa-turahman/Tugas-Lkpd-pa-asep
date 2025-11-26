@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <title>Gabungan: Sembunyikan & Live Input</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    button { padding: 8px 12px; margin-top: 8px; cursor: pointer; }
+    input { padding: 6px; margin-top: 12px; }
+  </style>
+</head>
+<body>
+
+  <h2>1. Tombol Sembunyikan Paragraf</h2>
+  <p id="paragraf">Ini paragraf yang bisa disembunyikan ketika tombol diklik.</p>
+  <button onclick="document.getElementById('paragraf').style.display='none'">
+    Sembunyikan
+  </button>
+
+  <hr style="margin: 30px 0;" />
+
+  <h2>2. Input Teks Live (oninput)</h2>
+  <input type="text" id="inputLive" placeholder="Ketik sesuatu..." oninput="tampilkan()">
+  <p>Hasil: <span id="outputLive"></span></p>
+
+  <!-- Password gagal -->
+  <h3>Validasi Password</h3>
+  <input type="password" id="password" placeholder="Masukkan password (min 8 karakter)" oninput="validatePassword()">
+  <p id="passwordFeedback" aria-live="polite"></p>  
+
+  <script>
+    function tampilkan() {
+      document.getElementById("outputLive").textContent = document.getElementById("inputLive").value;
+    }
+      function tampilkan() {
+      document.getElementById("outputLive").textContent = document.getElementById("inputLive").value;
+    }
+
+    // Validasi password minimal 8 karakter
+    function validatePassword() {
+      const pw = document.getElementById('password').value;
+      const fb = document.getElementById('passwordFeedback');
+      if (pw.length === 0) {
+        fb.innerHTML = ''; // bila input kosong
+        return;
+      }
+      if (pw.length < 8) {
+        fb.innerHTML = 'Password terlalu pendek — minimal 8 karakter.';
+      } else {
+        fb.innerHTML = 'Password cukup ✓';
+      }
+    }
+  </script>
+
+</body>
+</html>
